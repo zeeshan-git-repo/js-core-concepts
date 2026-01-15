@@ -1,0 +1,54 @@
+Callback vs Promise vs Async/Await
+====================================
+1. Callbacks => 
+- Old way of handling async tasks.
+- Functions passed as arguments, executed later.
+- Leads to callback hell (deep nesting).
+- Error handling is manual at each level.
+- Still found in legacy Node.js APIs (fs.readFile, etc.).
+Example-
+getUser(1, (err, user) => {
+  if (err) return console.error(err);
+  getPosts(user.id, (err, posts) => {
+    if (err) return console.error(err);
+    console.log(posts);
+  });
+});
+
+
+2. Promises =>
+- Modern abstraction for async operations.
+- Has states: pending → fulfilled/rejected.
+- Provides .then(), .catch(), .finally() for chaining.
+- Solves callback hell with flat chains.
+- Centralized error handling.
+- Useful for parallel tasks (Promise.all, Promise.race).
+Example- 
+getUser(1)
+  .then(user => getPosts(user.id))
+  .then(posts => console.log(posts))
+  .catch(err => console.error(err));
+
+3. Async/Await =>
+- Syntactic sugar built on Promises (ES2017+).
+- Makes async code look synchronous.
+- Uses await inside async functions.
+- Errors handled with try...catch.
+- Most readable and industry-standard approach today.
+- Often combined with Promise utilities for complex flows.
+Example- 
+async function showPosts() {
+  try {
+    const user = await getUser(1);
+    const posts = await getPosts(user.id);
+    console.log(posts);
+  } catch (err) {
+    console.error(err);
+  }
+}
+showPosts();
+
+🎯 Quick Interview Takeaway
+- Callbacks → legacy, messy, prone to errors.
+- Promises → cleaner, chainable, better error handling.
+- Async/Await → industry standard, most readable, preferred in modern frameworks.
