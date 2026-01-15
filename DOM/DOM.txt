@@ -1,0 +1,35 @@
+To modifying html element dynamically, javascript uses DOM. JS doesn't understand
+tags<> so all these tags are converted into object because of DOM, hence JS easily manipulate
+using objects.
+JS can access para<> and it can change content of that tag and add/remove also. But directly it can not access para<> tags.
+Browser will repaint(updates) your UI by JS changes.
+By modifying DOM we can create dynamic UI. It is called DOM Manipulating.
+
+May be internally structure is like below - 
+window = {
+    document:{
+        html:{
+            head:{
+
+            },
+            body:{
+
+            }
+        }
+    }
+}
+
+############################################################################
+The DOM (Document Object Model) in JavaScript is the browser’s in-memory, tree-like representation of an HTML/XML document, enabling structured, programmatic access and manipulation of elements, attributes, and styles. For interviews, you should emphasize its architecture, lifecycle, performance considerations, and modern best practices.
+
+🌐 Core Concepts of the DOM
+- Definition: The DOM is not HTML itself, but a live object-oriented API that represents the document structure.
+- Tree Structure: Every node (element, attribute, text) is part of a hierarchical tree with document as the root.
+- Node Types:
+- Element nodes: <div>, <p>, etc.
+- Text nodes: actual text inside elements.
+- Attribute nodes: element attributes like class, id.
+- Live Representation: Unlike static HTML, the DOM updates dynamically as the page changes.
+
+
+

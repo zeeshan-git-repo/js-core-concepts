@@ -1,0 +1,27 @@
+Include Script (classic <script src="...">)
+- Loads a JavaScript file globally into the page.
+- All variables/functions are added to the global scope (unless wrapped).
+- No dependency management, no encapsulation.
+- Order matters: if script B depends on script A, A must be loaded first.
+- Example:
+<script src="utils.js"></script>
+<script src="app.js"></script>
+
+2. Import Script (ES Modules)
+- Introduced with ES6 (<script type="module">).
+- Scripts are treated as modules:
+- Scoped (no pollution of global namespace).
+- Can import and export specific functions/objects.
+- Automatically deferred (no blocking).
+- Supports dependency graphs (browser resolves imports).
+- Example:
+<script type="module">
+  import { add } from './math.js';
+  console.log(add(2, 3));
+</script>
+
+
+- Benefits:
+- Cleaner architecture.
+- Encourages modular design.
+- Industry standard in modern frameworks (React, Angular, Vue, etc.).

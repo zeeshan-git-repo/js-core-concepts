@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:epub="http://www.idpf.org/2007/ops"
+    lang="en"
+    xml:lang="en"
+>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Asynchronous Call Example - DOM</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <script src="../scripts.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Asynchronous Call Example - DOM</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Introduction</h2>
+            <p>This example demonstrates how to make asynchronous calls using the DOM API.</p>
+        </section>
+        <section>
+            <h2>Example Code</h2>
+            <pre><code>// Function to fetch data asynchronously
+async function fetchData(url) { 
+    try {
+        let response = await fetch(url);
+        let data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+}   
+// Call the function with a sample URL
+fetchData('https://api.example.com/data');</code></pre>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Asynchronous Call Examples</p>
+    </footer>
+</body>
+</html>

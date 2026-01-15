@@ -1,0 +1,54 @@
+Script Placement: Head vs Body
+
+
+1. Script in <head>
+- Default behavior:
+- When a <script> tag is placed in the <head> without async or defer, the browser parses HTML until it hits the script, then blocks rendering while downloading and executing it.
+- This can delay page rendering and cause a “flash of blank page” if scripts are large.
+- Best practice:
+- Use defer or async attributes to avoid blocking:
+- defer: Executes script after HTML parsing is complete, in order.
+- async: Executes script as soon as it’s downloaded, order not guaranteed.
+
+Example -
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Script Loading Example</title>
+
+  <!-- Script with defer: downloaded in parallel, executed after HTML parsing, in order -->
+  <script src="deferred-script.js" defer></script>
+
+  <!-- Script with async: downloaded in parallel, executed immediately when ready, order not guaranteed -->
+  <script src="async-script.js" async></script>
+</head>
+<body>
+  <h1>Hello World</h1>
+  <p>This content loads before scripts execute.</p>
+</body>
+</html>
+
+- defer
+- Scripts are fetched in parallel with HTML parsing.
+- Execution happens after the document is fully parsed.
+- Multiple deferred scripts preserve execution order.
+- Best practice for most cases.
+
+- async
+- Scripts are fetched in parallel with HTML parsing.
+- Execution happens as soon as the script is ready, potentially before parsing finishes.
+- Multiple async scripts may execute out of order.
+- Best for independent scripts (e.g., analytics, ads).
+
+
+
+2. Script in <body> (usually at the end)
+- Default behavior:
+- By the time the script runs, most of the DOM is already parsed.
+- No blocking of initial rendering → faster perceived load.
+- Best practice:
+- Common in legacy apps before defer existed.
+- Today, defer in <head> is preferred because it keeps scripts organized and predictable.
+👉 Interview takeaway:
+Scripts in <head> block rendering unless defer/async is used. Scripts at the end of <body> avoid blocking but are less clean. Modern practice: put scripts in <head> with defer.

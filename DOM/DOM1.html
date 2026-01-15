@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>This is DOM Title</title>
+</head>
+
+<body>
+    <h1>DOM Element</h1>
+    <p>This is DOM paragraph</p>
+    <button onclick="changePara()">Click Me</button>
+
+    <script>
+        function getUSer() {
+            console.log("Hello Zeeshan");
+        }
+        getUSer();
+        function getDomElement() {
+            var h1DomElement = document.querySelector("h1");
+            h1DomElement.innerText = "DOM Manipulation";
+        }
+        getDomElement();
+
+        function changePara() {
+            var pDomElement = document.querySelector("p");
+            pDomElement.innerText = "Paragraph changed using DOM";
+        }
+    </script>
+</body>
+
+</html>
