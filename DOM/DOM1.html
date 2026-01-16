@@ -9,8 +9,16 @@
     <h1>DOM Element</h1>
     <p>This is DOM paragraph</p>
     <button onclick="changePara()">Click Me</button>
+    <button onclick="createNewElement()">Create DOM element</button>
 
     <script>
+        function createNewElement() {
+            var newElement = document.createElement("h2");
+            newElement.textContent = "New DOM Element";
+            var bodyDocument = document.querySelector("body");
+            bodyDocument.appendChild(newElement);
+        }
+
         function getUSer() {
             console.log("Hello Zeeshan");
         }
