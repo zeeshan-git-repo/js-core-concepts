@@ -1,0 +1,19 @@
+Module System in JS is a technique to access code(function, class,variables)
+of one file into another file.
+
+We can implement module system using two patterns-
+1. Common JS module pattern (node js, express js support this)
+2. ES6 module pattern (React,Angular, vue.js, node js, express js support his)
+
+ES6 module pattern=> 
+It is a design pattern to implement module system in JS.
+To work with this pattern following configuration need to be done.
+    create a file called package.json
+    add a object in the package.json file
+    inside the object add following property 
+    "type":"module"
+    if it not written browser will understand this is common js pattern.
+
+There are two ways to export Javascript code
+1. Named export
+2. Default export
